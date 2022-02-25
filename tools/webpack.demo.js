@@ -20,7 +20,7 @@ const webpackConfig = {
   entry: './src/main.js',
   output: {
     path: path.resolve(process.cwd(), './dist/'),
-    publicPath: '/webex-chat-starter/',
+    publicPath: '/webex-v6-chat-starter/',
     filename: isProd ? 'js/[name].[hash:7].js' : 'js/[name].js',
     chunkFilename: isProd ? 'js/[name].[hash:7].js' : 'js/[name].js',
   },
@@ -36,7 +36,7 @@ const webpackConfig = {
     // overlay: true,
     host: 'localhost',
     port: 5012,
-    openPage: 'webex-chat-starter/',
+    openPage: 'webex-v6-chat-starter/',
     hot: true,
     // historyApiFallback: {
     //   index: '/'

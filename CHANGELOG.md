@@ -1,4 +1,4 @@
-# webex-chat-starter Change Log
+# webex-v6-chat-starter Change Log
 
 Version numbers are semver-compatible dates in YYYY.MM.DD-X format,
 where X is the revision number

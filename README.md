@@ -1,4 +1,4 @@
-# webex-chat-starter
+# webex-v6-chat-starter
 The dCloud Webex Contact Center v4 Instant Demo chat starter page.
 It is built on Vue.js 2.6 (including vue-router and vuex), using Webpack 4.
 
@@ -20,4 +20,4 @@ opening your browser javascript console and entering `localStorage.jwt`.
 
 ## Production
 ### Installation
-`./install.sh` to build and install to the /var/www/html/static/webex-chat-starter folder
+`./install.sh` to build and install to the /var/www/html/static/webex-v6-chat-starter folder
