@@ -15,7 +15,7 @@
       </section>
     </div> -->
     <!-- IMI Connect chat -->
-    <div id="divicw" :data-bind="imiId" data-org="" />
+    <div id="divicw" :data-bind="demoBaseConfig.imiConnectId" data-org="" />
   </div>
 </template>
 
@@ -37,13 +37,6 @@ export default {
       'sessionInfo',
       'loading'
     ]),
-    imiId () {
-      try {
-        return this.sessionInfo.configuration.imiConnectId
-      } catch (e) {
-        return ''
-      }
-    },
     datacenter () {
       return this.query.datacenter
     },
@@ -67,17 +60,22 @@ export default {
       }
     },
     sessionInfo (val) {
-      if (val && val.configuration && val.configuration.templateId) {
-        const config = val.configuration
-        // has chat template ID - try to start chat
-        this.initImiConnect({
-          async: typeof config.async === 'boolean' ? config.async : true,
-          CiscoAppId: config.CiscoAppId,
-          appPrefix: config.appPrefix,
-          DC: config.DC,
-          orgId: config.orgId,
-          templateId: config.templateId
-        })
+      try {
+        if (val.demo) {
+          this.getDemoBaseConfig()
+        }
+      } catch (e) {
+        // continue
+      }
+    },
+    demoBaseConfig (val) {
+      try {
+        if (val && val.imiConnectId) {
+          // has IMI ID - try to start chat
+          this.initImiConnect()
+        }
+      } catch (e) {
+        // continue
       }
     }
   },

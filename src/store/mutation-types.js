@@ -18,5 +18,6 @@ export const SET_VERTICALS = 'SET_VERTICALS'
 // dcloud session ID and datacenter
 export const SET_INSTANCE = 'SET_DCLOUD_SESSION'
 
-// agent answers
+// dcloud info
 export const SET_SESSION_INFO = 'SET_SESSION_INFO'
+export const SET_DEMO_BASE_CONFIG = 'SET_DEMO_BASE_CONFIG'
