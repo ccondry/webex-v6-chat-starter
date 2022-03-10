@@ -26,8 +26,6 @@ const actions = {
       options.headers['Content-Type'] = options.headers['Content-Type'] || 'application/json'
       // set accept to JSON by default
       options.headers['Accept'] = options.headers['Accept'] || 'application/json'
-      // set JWT auth header by default
-      options.headers['Authorization'] = options.headers['Authorization'] || 'Bearer ' + getters.jwt
       // set instant demo instance name
       // options.headers['Instance'] = getters.instanceName
       // stringify body if it is an object
@@ -73,10 +71,6 @@ const actions = {
           }
           return text
         }
-      } else if (response.status === 401) {
-        // expired JWT. forget jwt and forward to SSO login
-        window.localStorage.removeItem('jwt')
-        return dispatch('login')
       } else {
         // not OK and not 401
         let m = text

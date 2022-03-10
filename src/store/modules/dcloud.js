@@ -36,21 +36,23 @@ const actions = {
     })
   },
   async getDemoBaseConfig ({dispatch, getters}) {
-    const query = {
-      type: {
-        $regex: getters.sessionInfo.demo,
-        $options: 'i'
-      }
-    }
-    if (getters.sessionInfo.version) {
-      query.version = {
-        $regex: getters.sessionInfo.version,
-        $options: 'i'
-      }
-    }
-    if (getters.isInstantDemo) {
-      query.instant = getters.sessionInfo.instant
-    }
+    // const query = {
+    //   type: {
+    //     // $regex: getters.sessionInfo.demo,
+    //     $regex: 'webex',
+    //     $options: 'i'
+    //   }
+    // }
+    // if (getters.sessionInfo.version) {
+    //   query.version = {
+    //     // $regex: getters.sessionInfo.version,
+    //     $regex: 'v6',
+    //     $options: 'i'
+    //   }
+    // }
+    // if (getters.isInstantDemo) {
+    //   query.instant = getters.sessionInfo.instant
+    // }
     return dispatch('fetch', {
       group: 'dcloud',
       type: 'baseConfig',
@@ -59,8 +61,12 @@ const actions = {
       showNotification: false,
       mutation: types.SET_DEMO_BASE_CONFIG,
       options: {
-        method: 'POST',
-        query
+        // method: 'POST',
+        query: {
+          type: 'webex',
+          version: 'v6',
+          instant: true
+        }
       }
     })
   }

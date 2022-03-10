@@ -19,7 +19,6 @@ const state = {
     dcloud: {}
   },
   isProduction: process.env.NODE_ENV === 'production',
-  demoBaseConfig: {},
   uiVersion: version,
   apiVersion: 'Loading...'
 }
@@ -29,8 +28,7 @@ const getters = {
   loading: state => state.loading,
   working: state => state.working,
   uiVersion: state => state.uiVersion,
-  apiVersion: state => state.apiVersion,
-  demoBaseConfig: state => state.demoBaseConfig
+  apiVersion: state => state.apiVersion
 }
 
 const mutations = {

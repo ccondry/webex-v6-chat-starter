@@ -35,13 +35,15 @@ export default {
   computed: {
     ...mapGetters([
       'sessionInfo',
+      'demoBaseConfig',
       'loading'
     ]),
     datacenter () {
-      return this.query.datacenter
+      // return this.query.datacenter
+      return 'webex'
     },
     session () {
-      return this.query.session
+      return 'v6'
     },
     isLoading () {
       return this.loading.user.session || this.webexLoading
@@ -60,6 +62,8 @@ export default {
       }
     },
     sessionInfo (val) {
+      console.log('session info changed:', val)
+      console.log('session info .demo:', val.demo)
       try {
         if (val.demo) {
           this.getDemoBaseConfig()
@@ -90,6 +94,7 @@ export default {
 
   methods: {
     ...mapActions([
+      'getDemoBaseConfig',
       'getSessionInfo'
     ]),
     checkUserId () {
